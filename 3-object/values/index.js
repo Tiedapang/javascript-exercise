@@ -1,3 +1,4 @@
 export default function countTypesNumber(source) {
-  // TODO 6: 在这里写实现代码
+  const value = Object.values(source);
+  return value.reduce((item1, item2) => Number(item1) + Number(item2));
 }
