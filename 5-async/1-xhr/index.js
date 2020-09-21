@@ -1,9 +1,14 @@
 function fetchData(url, successCallback, errorCallback) {
   const xhr = new XMLHttpRequest();
-  // <-- start
-  // TODO 21: 通过XMLHttpRequest实现异步请求
-
-  // end -->
+  xhr.open('GET', url);
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === 4) {
+      successCallback(xhr.responseText);
+    } else {
+      errorCallback(xhr.statusText);
+    }
+  };
+  xhr.send();
 }
 
 const URL = 'http://localhost:3000/api';
